@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31129.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppControleTarefas", "ConsoleAppControleTarefas\ConsoleAppControleTarefas.csproj", "{B96C26AF-AC05-40D9-B55E-27F248D9F12C}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "BancoDeDados.ProjetoDB", "BancoDeDados.ProjetoDB\BancoDeDados.ProjetoDB.sqlproj", "{155F717F-A5CD-4BEF-9076-25CE9E4ED78C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B96C26AF-AC05-40D9-B55E-27F248D9F12C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B96C26AF-AC05-40D9-B55E-27F248D9F12C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B96C26AF-AC05-40D9-B55E-27F248D9F12C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B96C26AF-AC05-40D9-B55E-27F248D9F12C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{155F717F-A5CD-4BEF-9076-25CE9E4ED78C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{155F717F-A5CD-4BEF-9076-25CE9E4ED78C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{155F717F-A5CD-4BEF-9076-25CE9E4ED78C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{155F717F-A5CD-4BEF-9076-25CE9E4ED78C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{155F717F-A5CD-4BEF-9076-25CE9E4ED78C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{155F717F-A5CD-4BEF-9076-25CE9E4ED78C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {592F7963-9331-4A26-AFF6-0111A2E08C7E}
+	EndGlobalSection
+EndGlobal
