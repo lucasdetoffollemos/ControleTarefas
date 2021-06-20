@@ -29,9 +29,32 @@ namespace ConsoleAppControleTarefas
                 if (opcao.Equals("s", StringComparison.OrdinalIgnoreCase))
                     continue;
 
-                if (telaSelecionada is TelaTarefa)
+
+               if (telaSelecionada is ICadastravel)
                 {
-                    //ICadastravel tela = (ICadastravel)telaSelecionada;
+                    ICadastravel tela = (ICadastravel)telaSelecionada;
+                   
+
+                    if (opcao == "1")
+                        tela.InserirNovoRegistro();
+
+                    else if (opcao == "2")
+                    {
+                        bool temRegistros = tela.VisualizarRegistros(TipoVisualizacao.VisualizandoTela);
+                        if (temRegistros)
+                            Console.ReadLine();
+                    }
+
+                    else if (opcao == "3")
+                        tela.EditarRegistro();
+
+                    else if (opcao == "4")
+                        tela.ExcluirRegistro();
+
+                }
+                else if (telaSelecionada is TelaTarefa)
+                {
+                    
                     TelaTarefa tela = (TelaTarefa)telaSelecionada;
 
                     if (opcao == "1")

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ConsoleAppControleTarefas.Controladores;
+using ConsoleAppControleTarefas.Telas;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,15 +11,18 @@ namespace ConsoleAppControleTarefas
     public class TelaPrincipal : TelaBase
     {
         private readonly ControladorTarefa controladorTarefa;
-       
+        private readonly ControladorContato controladorContato;
 
         private readonly TelaTarefa telaTarefa;
+        private readonly TelaContato telaContato;
         
         public TelaPrincipal() : base("Tela Principal")
         {
             controladorTarefa = new ControladorTarefa();
+            controladorContato = new ControladorContato();
 
             telaTarefa = new TelaTarefa(controladorTarefa);
+            telaContato = new TelaContato(controladorContato);
         }
 
         public TelaBase ObterTela()
@@ -29,7 +34,7 @@ namespace ConsoleAppControleTarefas
             do
             {
                 Console.WriteLine("Digite 1 para o Cadastro de Tarefa");
-               
+                Console.WriteLine("Digite 2 para o Cadastro de Contato");
 
                 Console.WriteLine("Digite S para Sair");
                 Console.WriteLine();
@@ -38,6 +43,9 @@ namespace ConsoleAppControleTarefas
 
                 if (opcao == "1")
                     telaSelecionada = telaTarefa;
+
+                else if(opcao == "2")
+                    telaSelecionada = telaContato;
 
 
                 else if (opcao.Equals("s", StringComparison.OrdinalIgnoreCase))
