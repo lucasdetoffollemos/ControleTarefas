@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleAppControleTarefas.Dominio
 {
-    public class Contato : EntidadeBase
+    public class Contato : EntidadeBase, IValidavel
     {
         public string nome;
         public string email;
@@ -23,7 +23,25 @@ namespace ConsoleAppControleTarefas.Dominio
         }
 
         public string Validar() {
-            return "ESTA_VALIDO";
+
+            string resultadoValidacao = "";
+
+            string telefoneStr = Convert.ToString(telefone);
+
+            if (telefoneStr.Length != 9)
+            {
+                resultadoValidacao = "Número inválido, tente novamente \n";
+            }
+
+            if (!email.Contains("@") && !email.Contains(".com"))
+            {
+                resultadoValidacao += "Email inválido, tente novamente";
+            }
+
+            if (string.IsNullOrEmpty(resultadoValidacao))
+                resultadoValidacao = "ESTA_VALIDO";
+
+            return resultadoValidacao;
         }
 
     }

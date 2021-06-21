@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleAppControleTarefas.Dominio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleAppControleTarefas
 {
-    public class Tarefa : EntidadeBase
+    public class Tarefa : EntidadeBase, IValidavel
     {
         public string prioridade;
         public string titulo;
@@ -32,6 +33,8 @@ namespace ConsoleAppControleTarefas
             this.percentual = percentual;
         }
 
+       
+
         private string gerarPrioridade(int prioridadeChave)
         {
             Dictionary<int, string> prioridades = new Dictionary<int, string>();
@@ -49,6 +52,27 @@ namespace ConsoleAppControleTarefas
 
             return "ERRADO";
 
+        }
+
+
+        public string Validar()
+        {
+            string resultadoValidacao = "";
+
+            if (percentual > 100)
+            {
+                resultadoValidacao = "Percentual não pode ser maior que cem, tente novamente";
+            }
+
+            if (percentual < 0)
+            {
+                resultadoValidacao = "Percentual não pode ser menor que 0, tente novamente";
+            }
+
+            if (string.IsNullOrEmpty(resultadoValidacao))
+                resultadoValidacao = "ESTA_VALIDO";
+
+            return resultadoValidacao;
         }
     }
 }

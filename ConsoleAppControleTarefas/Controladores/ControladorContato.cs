@@ -18,15 +18,15 @@ namespace ConsoleAppControleTarefas.Controladores
         {
             string resultado = contato.Validar();
 
-            SqlConnection conexaoComBanco = new SqlConnection();
-            conexaoComBanco.ConnectionString = enderecoDBTarefa;
-            conexaoComBanco.Open();
+            if (resultado == "ESTA_VALIDO")
+            {
+                SqlConnection conexaoComBanco = AbrindoConexaoDB();
 
-            SqlCommand comandoInsercao = new SqlCommand();
-            comandoInsercao.Connection = conexaoComBanco;
+                SqlCommand comandoInsercao = new SqlCommand();
+                comandoInsercao.Connection = conexaoComBanco;
 
-            string sqlInsercao =
-                @"INSERT INTO TBCONTATO
+                string sqlInsercao =
+                    @"INSERT INTO TBCONTATO
                     (
                         [NOME],
                         [EMAIL],
@@ -43,31 +43,30 @@ namespace ConsoleAppControleTarefas.Controladores
                         @CARGO
                     );";
 
-            sqlInsercao +=
-                @"SELECT SCOPE_IDENTITY();";
+                sqlInsercao +=
+                    @"SELECT SCOPE_IDENTITY();";
 
-            comandoInsercao.CommandText = sqlInsercao;
+                comandoInsercao.CommandText = sqlInsercao;
 
-            comandoInsercao.Parameters.AddWithValue("NOME", contato.nome);
-            comandoInsercao.Parameters.AddWithValue("EMAIL", contato.email);
-            comandoInsercao.Parameters.AddWithValue("TELEFONE", contato.telefone);
-            comandoInsercao.Parameters.AddWithValue("EMPRESA", contato.empresa);
-            comandoInsercao.Parameters.AddWithValue("CARGO", contato.cargo);
+                comandoInsercao.Parameters.AddWithValue("NOME", contato.nome);
+                comandoInsercao.Parameters.AddWithValue("EMAIL", contato.email);
+                comandoInsercao.Parameters.AddWithValue("TELEFONE", contato.telefone);
+                comandoInsercao.Parameters.AddWithValue("EMPRESA", contato.empresa);
+                comandoInsercao.Parameters.AddWithValue("CARGO", contato.cargo);
 
-            object id = comandoInsercao.ExecuteScalar();
+                object id = comandoInsercao.ExecuteScalar();
 
-           contato.id = Convert.ToInt32(id);
+                contato.id = Convert.ToInt32(id);
 
-            conexaoComBanco.Close();
+                conexaoComBanco.Close();
+            }
 
             return resultado;
         }
 
         public override List<Contato> SelecionarTodosRegistros()
         {
-            SqlConnection conexaoComBanco = new SqlConnection();
-            conexaoComBanco.ConnectionString = enderecoDBTarefa;
-            conexaoComBanco.Open();
+            SqlConnection conexaoComBanco = AbrindoConexaoDB();
 
             SqlCommand comandoSelecao = new SqlCommand();
             comandoSelecao.Connection = conexaoComBanco;
@@ -81,7 +80,8 @@ namespace ConsoleAppControleTarefas.Controladores
                         [EMPRESA],
                         [CARGO]
                     FROM 
-                        TBCONTATO ";
+                        TBCONTATO 
+                    ORDER BY [CARGO]";
 
 
             comandoSelecao.CommandText = sqlSelecao;
@@ -115,15 +115,15 @@ namespace ConsoleAppControleTarefas.Controladores
             string resultado = contato.Validar();
             //string resultado = "ESTA_VALIDO";
 
-            SqlConnection conexaoComBanco = new SqlConnection();
-            conexaoComBanco.ConnectionString = enderecoDBTarefa;
-            conexaoComBanco.Open();
+            if(resultado == "ESTA_VALIDO")
+            {
+                SqlConnection conexaoComBanco = AbrindoConexaoDB();
 
-            SqlCommand comandoAtualizacao = new SqlCommand();
-            comandoAtualizacao.Connection = conexaoComBanco;
+                SqlCommand comandoAtualizacao = new SqlCommand();
+                comandoAtualizacao.Connection = conexaoComBanco;
 
-            string sqlAtualizacao =
-                @"UPDATE TBCONTATO 
+                string sqlAtualizacao =
+                    @"UPDATE TBCONTATO 
 	                SET	
 		                [NOME] = @NOME,
                         [EMAIL] = @EMAIL,
@@ -133,27 +133,25 @@ namespace ConsoleAppControleTarefas.Controladores
 	                WHERE 
 		                [ID] = @ID";
 
-            comandoAtualizacao.CommandText = sqlAtualizacao;
+                comandoAtualizacao.CommandText = sqlAtualizacao;
 
-            comandoAtualizacao.Parameters.AddWithValue("ID", idEncontrado);
-            comandoAtualizacao.Parameters.AddWithValue("NOME", contato.nome);
-            comandoAtualizacao.Parameters.AddWithValue("EMAIL", contato.email);
-            comandoAtualizacao.Parameters.AddWithValue("TELEFONE", contato.telefone);
-            comandoAtualizacao.Parameters.AddWithValue("EMPRESA", contato.empresa);
-            comandoAtualizacao.Parameters.AddWithValue("CARGO", contato.cargo);
+                comandoAtualizacao.Parameters.AddWithValue("ID", idEncontrado);
+                comandoAtualizacao.Parameters.AddWithValue("NOME", contato.nome);
+                comandoAtualizacao.Parameters.AddWithValue("EMAIL", contato.email);
+                comandoAtualizacao.Parameters.AddWithValue("TELEFONE", contato.telefone);
+                comandoAtualizacao.Parameters.AddWithValue("EMPRESA", contato.empresa);
+                comandoAtualizacao.Parameters.AddWithValue("CARGO", contato.cargo);
 
-            comandoAtualizacao.ExecuteNonQuery();
+                comandoAtualizacao.ExecuteNonQuery();
 
-            conexaoComBanco.Close();
-
+                conexaoComBanco.Close();
+            }
             return resultado;
         }
 
         public override bool ExcluirRegistro(Contato contato)
         {
-            SqlConnection conexaoComBanco = new SqlConnection();
-            conexaoComBanco.ConnectionString = enderecoDBTarefa;
-            conexaoComBanco.Open();
+            SqlConnection conexaoComBanco = AbrindoConexaoDB();
 
             SqlCommand comandoExclusao = new SqlCommand();
             comandoExclusao.Connection = conexaoComBanco;
@@ -176,9 +174,7 @@ namespace ConsoleAppControleTarefas.Controladores
 
         public override Contato SelecionarRegistroPorId(int idPesquisado)
         {
-            SqlConnection conexaoComBanco = new SqlConnection();
-            conexaoComBanco.ConnectionString = enderecoDBTarefa;
-            conexaoComBanco.Open();
+            SqlConnection conexaoComBanco = AbrindoConexaoDB();
 
             SqlCommand comandoSelecao = new SqlCommand();
             comandoSelecao.Connection = conexaoComBanco;

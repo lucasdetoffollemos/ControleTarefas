@@ -9,21 +9,22 @@ namespace ConsoleAppControleTarefas
 {
     public class ControladorTarefa : ControladorBase<Tarefa>
     {
-        private const string enderecoDBTarefa =
-                 @"Data Source=(LocalDb)\MSSqlLocalDB;Initial Catalog=DBTarefa;Integrated Security=True;Pooling=False";
+        
 
         public override string InserirNovo(Tarefa tarefa)
         {
+            string resultado = tarefa.Validar();
 
-            SqlConnection conexaoComBanco = new SqlConnection();
-            conexaoComBanco.ConnectionString = enderecoDBTarefa;
-            conexaoComBanco.Open();
+            if (resultado == "ESTA_VALIDO")
+            {
 
-            SqlCommand comandoInsercao = new SqlCommand();
-            comandoInsercao.Connection = conexaoComBanco;
+                SqlConnection conexaoComBanco = AbrindoConexaoDB();
 
-            string sqlInsercao =
-                @"INSERT INTO TBTAREFA
+                SqlCommand comandoInsercao = new SqlCommand();
+                comandoInsercao.Connection = conexaoComBanco;
+
+                string sqlInsercao =
+                    @"INSERT INTO TBTAREFA
                     (
                         [PRIORIDADE],
                         [TITULO],
@@ -40,33 +41,31 @@ namespace ConsoleAppControleTarefas
                         @PERCENTUAL
                     );";
 
-            sqlInsercao +=
-                @"SELECT SCOPE_IDENTITY();";
+                sqlInsercao +=
+                    @"SELECT SCOPE_IDENTITY();";
 
-            comandoInsercao.CommandText = sqlInsercao;
+                comandoInsercao.CommandText = sqlInsercao;
 
-            comandoInsercao.Parameters.AddWithValue("PRIORIDADE", tarefa.prioridade);
-            comandoInsercao.Parameters.AddWithValue("TITULO", tarefa.titulo);
-            comandoInsercao.Parameters.AddWithValue("DATACRIACAO", tarefa.dataCriacao);
-            comandoInsercao.Parameters.AddWithValue("DATACONCLUSAO", tarefa.dataConclusao);
-            comandoInsercao.Parameters.AddWithValue("PERCENTUAL", tarefa.percentual);
+                comandoInsercao.Parameters.AddWithValue("PRIORIDADE", tarefa.prioridade);
+                comandoInsercao.Parameters.AddWithValue("TITULO", tarefa.titulo);
+                comandoInsercao.Parameters.AddWithValue("DATACRIACAO", tarefa.dataCriacao);
+                comandoInsercao.Parameters.AddWithValue("DATACONCLUSAO", tarefa.dataConclusao);
+                comandoInsercao.Parameters.AddWithValue("PERCENTUAL", tarefa.percentual);
 
-            object id = comandoInsercao.ExecuteScalar();
+                object id = comandoInsercao.ExecuteScalar();
 
-            tarefa.id = Convert.ToInt32(id);
+                tarefa.id = Convert.ToInt32(id);
 
-            conexaoComBanco.Close();
+                conexaoComBanco.Close();
+            }
 
-            return "ESTA_VALIDO";
+            return resultado;
         }
 
         public override List<Tarefa> SelecionarTodosRegistros()
         {
 
-
-            SqlConnection conexaoComBanco = new SqlConnection();
-            conexaoComBanco.ConnectionString = enderecoDBTarefa;
-            conexaoComBanco.Open();
+            SqlConnection conexaoComBanco = AbrindoConexaoDB();
 
             SqlCommand comandoSelecao = new SqlCommand();
             comandoSelecao.Connection = conexaoComBanco;
@@ -118,17 +117,17 @@ namespace ConsoleAppControleTarefas
         public override string EditarRegistro(int idEncontrado, Tarefa tarefa)
         {
             //string resultado = item.Validar();
-            string resultado = "ESTA_VALIDO";
+            string resultado = tarefa.Validar();
 
-            SqlConnection conexaoComBanco = new SqlConnection();
-            conexaoComBanco.ConnectionString = enderecoDBTarefa;
-            conexaoComBanco.Open();
+            if(resultado == "ESTA_VALIDO")
+            {
+                SqlConnection conexaoComBanco = AbrindoConexaoDB();
 
-            SqlCommand comandoAtualizacao = new SqlCommand();
-            comandoAtualizacao.Connection = conexaoComBanco;
+                SqlCommand comandoAtualizacao = new SqlCommand();
+                comandoAtualizacao.Connection = conexaoComBanco;
 
-            string sqlAtualizacao =
-                @"UPDATE TBTAREFA 
+                string sqlAtualizacao =
+                    @"UPDATE TBTAREFA 
 	                SET	
 		                [PRIORIDADE] = @PRIORIDADE,
                         [TITULO] = @TITULO,
@@ -137,27 +136,26 @@ namespace ConsoleAppControleTarefas
 	                WHERE 
 		                [ID] = @ID";
 
-            comandoAtualizacao.CommandText = sqlAtualizacao;
+                comandoAtualizacao.CommandText = sqlAtualizacao;
 
-            comandoAtualizacao.Parameters.AddWithValue("ID", idEncontrado);
-            comandoAtualizacao.Parameters.AddWithValue("PRIORIDADE", tarefa.prioridade);
-            comandoAtualizacao.Parameters.AddWithValue("TITULO", tarefa.titulo);
-            comandoAtualizacao.Parameters.AddWithValue("DATACONCLUSAO", tarefa.dataConclusao);
-            comandoAtualizacao.Parameters.AddWithValue("PERCENTUAL", tarefa.percentual);
+                comandoAtualizacao.Parameters.AddWithValue("ID", idEncontrado);
+                comandoAtualizacao.Parameters.AddWithValue("PRIORIDADE", tarefa.prioridade);
+                comandoAtualizacao.Parameters.AddWithValue("TITULO", tarefa.titulo);
+                comandoAtualizacao.Parameters.AddWithValue("DATACONCLUSAO", tarefa.dataConclusao);
+                comandoAtualizacao.Parameters.AddWithValue("PERCENTUAL", tarefa.percentual);
 
-            comandoAtualizacao.ExecuteNonQuery();
+                comandoAtualizacao.ExecuteNonQuery();
 
-            conexaoComBanco.Close();
+                conexaoComBanco.Close();
+            }
 
             return resultado;
         }
 
         public override bool ExcluirRegistro(Tarefa tarefa)
         {
-          
-            SqlConnection conexaoComBanco = new SqlConnection();
-            conexaoComBanco.ConnectionString = enderecoDBTarefa;
-            conexaoComBanco.Open();
+
+            SqlConnection conexaoComBanco = AbrindoConexaoDB();
 
             SqlCommand comandoExclusao = new SqlCommand();
             comandoExclusao.Connection = conexaoComBanco;
@@ -181,9 +179,7 @@ namespace ConsoleAppControleTarefas
         public override Tarefa SelecionarRegistroPorId(int idPesquisado)
         {
 
-            SqlConnection conexaoComBanco = new SqlConnection();
-            conexaoComBanco.ConnectionString = enderecoDBTarefa;
-            conexaoComBanco.Open();
+            SqlConnection conexaoComBanco = AbrindoConexaoDB();
 
             SqlCommand comandoSelecao = new SqlCommand();
             comandoSelecao.Connection = conexaoComBanco;
@@ -226,11 +222,9 @@ namespace ConsoleAppControleTarefas
 
         public  List<Tarefa> SelecionarTarefasFechadas()
         {
-            
 
-            SqlConnection conexaoComBanco = new SqlConnection();
-            conexaoComBanco.ConnectionString = enderecoDBTarefa;
-            conexaoComBanco.Open();
+
+            SqlConnection conexaoComBanco = AbrindoConexaoDB();
 
             SqlCommand comandoSelecao = new SqlCommand();
             comandoSelecao.Connection = conexaoComBanco;
@@ -283,11 +277,7 @@ namespace ConsoleAppControleTarefas
 
         public List<Tarefa> SelecionarTarefasAbertas()
         {
-           
-
-            SqlConnection conexaoComBanco = new SqlConnection();
-            conexaoComBanco.ConnectionString = enderecoDBTarefa;
-            conexaoComBanco.Open();
+            SqlConnection conexaoComBanco = AbrindoConexaoDB();
 
             SqlCommand comandoSelecao = new SqlCommand();
             comandoSelecao.Connection = conexaoComBanco;

@@ -48,6 +48,7 @@
     <Compile Include="Controladores\ControladorTarefa.cs" />
     <Compile Include="Dominio\Contato.cs" />
     <Compile Include="Dominio\EntidadeBase.cs" />
+    <Compile Include="Dominio\IValidavel.cs" />
     <Compile Include="ICadastravel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

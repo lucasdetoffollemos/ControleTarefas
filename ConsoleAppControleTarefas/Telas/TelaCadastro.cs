@@ -21,6 +21,7 @@ namespace ConsoleAppControleTarefas
 
         public void InserirNovoRegistro()
         {
+  
             ConfigurarTela("Inserindo uma novo registro...");
 
             TipoAcao tipo = new TipoAcao();
@@ -71,7 +72,7 @@ namespace ConsoleAppControleTarefas
 
             if (registroEncontrado == null)
             {
-                ApresentarMensagem("Nenhuma tarefa foi encontrada com este número: " + id, TipoMensagem.Erro);
+                ApresentarMensagem("Nenhum registro foi encontrado com este número: " + id, TipoMensagem.Erro);
                 EditarRegistro();
                 return;
             }
@@ -81,7 +82,7 @@ namespace ConsoleAppControleTarefas
             string resultadoValidacao = controlador.EditarRegistro(registroEncontrado.id, registro);
 
             if (resultadoValidacao == "ESTA_VALIDO")
-                ApresentarMensagem("Registro editada com sucesso", TipoMensagem.Sucesso);
+                ApresentarMensagem("Registro editado com sucesso", TipoMensagem.Sucesso);
             else
             {
                 ApresentarMensagem(resultadoValidacao, TipoMensagem.Erro);
