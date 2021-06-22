@@ -19,7 +19,7 @@ namespace ConsoleAppControleTarefas
             SqlConnection conexaoComBanco = new SqlConnection();
             conexaoComBanco.ConnectionString = enderecoDBTarefa;
             conexaoComBanco.Open();
-            return conexaoComBanco;
+            return conexaoComBanco;0
         }
 
         public abstract string InserirNovo(T item);

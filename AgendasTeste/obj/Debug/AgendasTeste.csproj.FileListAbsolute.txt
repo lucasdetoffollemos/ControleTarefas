@@ -1,0 +1,17 @@
+C:\Users\Lucas\Documents\AcademiaDoProgramador\BancoDeDados\ControleTarefas\AgendasTeste\obj\Debug\AgendasTeste.csprojAssemblyReference.cache
+C:\Users\Lucas\Documents\AcademiaDoProgramador\BancoDeDados\ControleTarefas\AgendasTeste\obj\Debug\AgendasTeste.csproj.CoreCompileInputs.cache
+C:\Users\Lucas\Documents\AcademiaDoProgramador\BancoDeDados\ControleTarefas\AgendasTeste\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\Lucas\Documents\AcademiaDoProgramador\BancoDeDados\ControleTarefas\AgendasTeste\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\Lucas\Documents\AcademiaDoProgramador\BancoDeDados\ControleTarefas\AgendasTeste\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Lucas\Documents\AcademiaDoProgramador\BancoDeDados\ControleTarefas\AgendasTeste\bin\Debug\AgendasTeste.dll
+C:\Users\Lucas\Documents\AcademiaDoProgramador\BancoDeDados\ControleTarefas\AgendasTeste\bin\Debug\AgendasTeste.pdb
+C:\Users\Lucas\Documents\AcademiaDoProgramador\BancoDeDados\ControleTarefas\AgendasTeste\bin\Debug\ConsoleAppControleTarefas.exe
+C:\Users\Lucas\Documents\AcademiaDoProgramador\BancoDeDados\ControleTarefas\AgendasTeste\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\Lucas\Documents\AcademiaDoProgramador\BancoDeDados\ControleTarefas\AgendasTeste\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\Lucas\Documents\AcademiaDoProgramador\BancoDeDados\ControleTarefas\AgendasTeste\bin\Debug\ConsoleAppControleTarefas.pdb
+C:\Users\Lucas\Documents\AcademiaDoProgramador\BancoDeDados\ControleTarefas\AgendasTeste\bin\Debug\ConsoleAppControleTarefas.exe.config
+C:\Users\Lucas\Documents\AcademiaDoProgramador\BancoDeDados\ControleTarefas\AgendasTeste\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\Lucas\Documents\AcademiaDoProgramador\BancoDeDados\ControleTarefas\AgendasTeste\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\Lucas\Documents\AcademiaDoProgramador\BancoDeDados\ControleTarefas\AgendasTeste\obj\Debug\AgendasTeste.csproj.CopyComplete
+C:\Users\Lucas\Documents\AcademiaDoProgramador\BancoDeDados\ControleTarefas\AgendasTeste\obj\Debug\AgendasTeste.dll
+C:\Users\Lucas\Documents\AcademiaDoProgramador\BancoDeDados\ControleTarefas\AgendasTeste\obj\Debug\AgendasTeste.pdb

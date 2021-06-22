@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppControleTarefas",
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "BancoDeDados.ProjetoDB", "BancoDeDados.ProjetoDB\BancoDeDados.ProjetoDB.sqlproj", "{155F717F-A5CD-4BEF-9076-25CE9E4ED78C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgendasTeste", "AgendasTeste\AgendasTeste.csproj", "{53A4DEEE-0761-42C7-B763-4A1E3C2FC792}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{155F717F-A5CD-4BEF-9076-25CE9E4ED78C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{155F717F-A5CD-4BEF-9076-25CE9E4ED78C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{155F717F-A5CD-4BEF-9076-25CE9E4ED78C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{53A4DEEE-0761-42C7-B763-4A1E3C2FC792}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53A4DEEE-0761-42C7-B763-4A1E3C2FC792}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53A4DEEE-0761-42C7-B763-4A1E3C2FC792}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53A4DEEE-0761-42C7-B763-4A1E3C2FC792}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

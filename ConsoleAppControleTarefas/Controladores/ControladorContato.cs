@@ -11,8 +11,7 @@ namespace ConsoleAppControleTarefas.Controladores
     public class ControladorContato : ControladorBase<Contato>
     {
 
-        private const string enderecoDBTarefa =
-                 @"Data Source=(LocalDb)\MSSqlLocalDB;Initial Catalog=DBTarefa;Integrated Security=True;Pooling=False";
+       
 
         public override string InserirNovo(Contato contato)
         {
