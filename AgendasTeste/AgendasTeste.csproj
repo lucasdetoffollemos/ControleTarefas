@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="ContatoTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TarefaTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

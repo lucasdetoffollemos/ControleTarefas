@@ -24,6 +24,28 @@ namespace AgendasTeste
             Assert.AreEqual(controladorContato.InserirNovo(contatoTeste), "ESTA_VALIDO");
         }
 
-       
+        [TestMethod]
+        public void DeveAtualizarContato()
+        {
+            Assert.AreEqual(controladorContato.EditarRegistro(1, contatoTeste), "ESTA_VALIDO");
+        }
+
+        [TestMethod]
+        public void DeveExcluirContato()
+        {
+            Assert.IsTrue(controladorContato.ExcluirRegistro(contatoTeste));
+        }
+
+        [TestMethod]
+        public void DeveSelecionarTodosContatos()
+        {
+            List<Contato> contatos = controladorContato.SelecionarTodosRegistros();
+
+            Assert.IsTrue(contatos.Count > 0);
+        }
+
+
+
+
     }
 }
