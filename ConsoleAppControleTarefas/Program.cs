@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleAppControleTarefas.Telas;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -52,7 +53,7 @@ namespace ConsoleAppControleTarefas
                         tela.ExcluirRegistro();
 
                 }
-                else if (telaSelecionada is TelaTarefa)
+                if (telaSelecionada is TelaTarefa)
                 {
                     
                     TelaTarefa tela = (TelaTarefa)telaSelecionada;
@@ -86,10 +87,43 @@ namespace ConsoleAppControleTarefas
                         if (temRegistros)
                             Console.ReadLine();
                     }
+                }
+                if (telaSelecionada is TelaCompromisso)
+                {
+                    TelaCompromisso tela = (TelaCompromisso)telaSelecionada;
+
+                    if (opcao == "1")
+                        tela.InserirNovoRegistro();
+
+                    else if (opcao == "2")
+                    {
+                        bool temRegistros = tela.VisualizarRegistros(TipoVisualizacao.VisualizandoTela);
+                        if (temRegistros)
+                            Console.ReadLine();
+                    }
+
+                    else if (opcao == "3")
+                        tela.EditarRegistro();
+
+                    else if (opcao == "4")
+                        tela.ExcluirRegistro();
+
+                    else if (opcao == "5")
+                    {
+                        bool temRegistros = tela.VisualizarCompromissosPassados(TipoVisualizacao.VisualizandoTela);
+                        if (temRegistros)
+                            Console.ReadLine();
+                    }
+
+                    else if (opcao == "6")
+                    {
+                        bool temRegistros = tela.VisualizarCompromissosFuturos(TipoVisualizacao.VisualizandoTela);
+                        if (temRegistros)
+                            Console.ReadLine();
+                    }
 
 
                 }
-               
             }
         }
     }

@@ -12,17 +12,23 @@ namespace ConsoleAppControleTarefas
     {
         private readonly ControladorTarefa controladorTarefa;
         private readonly ControladorContato controladorContato;
+        private readonly ControladorCompromisso controladorCompromisso;
 
         private readonly TelaTarefa telaTarefa;
         private readonly TelaContato telaContato;
+        private readonly TelaCompromisso telaCompromisso;
         
         public TelaPrincipal() : base("Tela Principal")
         {
             controladorTarefa = new ControladorTarefa();
             controladorContato = new ControladorContato();
+            controladorCompromisso = new ControladorCompromisso();
 
             telaTarefa = new TelaTarefa(controladorTarefa);
             telaContato = new TelaContato(controladorContato);
+            telaCompromisso = new TelaCompromisso(controladorCompromisso);
+
+
         }
 
         public TelaBase ObterTela()
@@ -35,6 +41,7 @@ namespace ConsoleAppControleTarefas
             {
                 Console.WriteLine("Digite 1 para o Cadastro de Tarefa");
                 Console.WriteLine("Digite 2 para o Cadastro de Contato");
+                Console.WriteLine("Digite 3 para o Cadastro de Compromisso");
 
                 Console.WriteLine("Digite S para Sair");
                 Console.WriteLine();
@@ -44,8 +51,11 @@ namespace ConsoleAppControleTarefas
                 if (opcao == "1")
                     telaSelecionada = telaTarefa;
 
-                else if(opcao == "2")
+                else if (opcao == "2")
                     telaSelecionada = telaContato;
+
+                else if (opcao == "3")
+                    telaSelecionada = telaCompromisso;
 
 
                 else if (opcao.Equals("s", StringComparison.OrdinalIgnoreCase))
