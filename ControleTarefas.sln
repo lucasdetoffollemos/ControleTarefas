@@ -1,13 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31129.286
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppControleTarefas", "ConsoleAppControleTarefas\ConsoleAppControleTarefas.csproj", "{B96C26AF-AC05-40D9-B55E-27F248D9F12C}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "BancoDeDados.ProjetoDB", "BancoDeDados.ProjetoDB\BancoDeDados.ProjetoDB.sqlproj", "{155F717F-A5CD-4BEF-9076-25CE9E4ED78C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgendasTeste", "AgendasTeste\AgendasTeste.csproj", "{53A4DEEE-0761-42C7-B763-4A1E3C2FC792}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{08E53140-C21F-470F-B227-C104527DDA9C}"
+	ProjectSection(SolutionItems) = preProject
+		cshartp.gitignore = cshartp.gitignore
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
